@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    image: "postgres"
+    container_name: "MARKET"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: marketAdmin
+      POSTGRES_DB: MARKET
+    ports:
+      - '5432:5432'
