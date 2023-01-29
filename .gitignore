@@ -1,4 +1,4 @@
-kafkaTopic/HELP.md
+marketplace/HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar

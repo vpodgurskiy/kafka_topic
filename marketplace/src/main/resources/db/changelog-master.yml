@@ -1,0 +1,9 @@
+databaseChangeLog:
+
+  - include:
+      file: changelog/1-create-table-orders.sql
+      relativeToChangelogFile: true
+
+  - include:
+      file: changelog/2-add-data-to-table-orders.sql
+      relativeToChangelogFile: true
