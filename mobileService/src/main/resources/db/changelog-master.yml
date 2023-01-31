@@ -1,0 +1,5 @@
+databaseChangeLog:
+
+  - include:
+      file: changelog/1-create-table-messages.sql
+      relativeToChangelogFile: true

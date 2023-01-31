@@ -1,5 +1,6 @@
 package com.vpod.academy.marketplace.mapper;
 
+import com.vpod.academy.marketplace.dto.OrderCreationDto;
 import com.vpod.academy.marketplace.dto.OrderDto;
 import com.vpod.academy.marketplace.entity.OrderEntity;
 import java.util.List;
@@ -21,4 +22,7 @@ public interface OrderMapper {
   OrderEntity mapToEntity(OrderDto dto);
 
   List<OrderEntity> mapToEntityAtList(List<OrderDto> dto);
+
+  @Mapping(target="status", source="orderStatus")
+  OrderEntity mapToEntity(OrderCreationDto dto);
 }

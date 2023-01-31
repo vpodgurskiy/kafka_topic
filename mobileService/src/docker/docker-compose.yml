@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    image: "postgres"
+    container_name: "MOBILE"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: mobileAdmin
+      POSTGRES_DB: MOBILE
+    ports:
+      - '5432:5432'
