@@ -1,0 +1,26 @@
+.tg-stepper {
+	display: flex;
+	gap: 1px;
+	height: $micro-grid;
+	margin-top: $micro-grid;
+	margin-bottom: $micro-grid;
+}
+
+.tg-stepper-step {
+	width: 4 * $micro-grid - 1px;
+	height: 100%;
+	background-color: $color-grey-cool-30;
+
+	&._passed {
+		background-color: $color-blue-50;
+	}
+	&._finished {
+		background-color: $color-green-50;
+	}
+	&._canceled {
+		background-color: $color-orange-txt;
+	}
+	&._unknown {
+		background-color: $color-grey-cool-30;
+	}
+}

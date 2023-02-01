@@ -1,0 +1,22 @@
+.tg-form {
+  margin-top: $gutter;
+}
+
+.tg-form-section {
+  margin-top: $padding;
+}
+
+.tg-form-row {
+  display: flex;
+  gap: $gutter;
+}
+
+.tg-form-field-group {
+  display: flex;
+}
+
+.tg-checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: ($padding/2);
+}

@@ -1,0 +1,70 @@
+@import "palette";
+
+.tg-dashboard-row {
+  background-color: $color-grey-10;
+  margin-left: -$padding;
+  margin-right: -$padding;
+  padding: $padding;
+}
+
+.tg-pane {
+  flex-direction: column;
+  position: relative;
+}
+
+.tg-pane-header {
+  @include Txt-Header-3;
+  padding-top: 3px; // Text compensation
+  padding-bottom: 5px; // Text compensation
+  margin-bottom: $padding;
+}
+
+.tg-pane-units {
+  @include Txt-Caption;
+  padding-top: 4px; // Text compensation
+  padding-bottom: 4px; // Text compensation
+  padding-left: ($padding/2);
+  padding-right: ($padding/2);
+  background-color: $color-white;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tg-indicator {
+  margin-bottom: ($padding/2);
+}
+
+.tg-indicator-label {
+  @include Txt-Caption;
+  color: $color-dimmed-txt;
+  padding-top: 3px; // Text compensation
+  padding-bottom: 5px; // Text compensation
+}
+
+.tg-indicator-label + .tg-indicator-chart {
+  margin-top: $padding/2;
+}
+
+.tg-indicator-value {
+  @include Txt-Header-1;
+  padding-top: 4px; // Text compensation
+  padding-bottom: 4px; // Text compensation
+
+  &._secondary {
+    @include Txt-Header-2;
+    color: $color-dimmed-txt;
+  }
+}
+
+.tg-indicator-body {
+  @include Txt-Body-1;
+  padding-top: 3px; // Text compensation
+  padding-bottom: 5px; // Text compensation
+}
+
+.tg-indicator-caption {
+  @include Txt-Caption;
+  padding-top: 4px; // Text compensation
+  padding-bottom: 4px; // Text compensation
+}

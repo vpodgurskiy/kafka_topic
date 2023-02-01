@@ -1,0 +1,46 @@
+.tg-kvp {
+  display: flex;
+}
+
+.tg-kvp-label {
+  @extend .tg-grid-2;
+  @include Txt-Caption-1;
+
+  color: $color-dimmed-txt;
+
+  padding-top: 6px; // Text compensation
+  padding-bottom: 6px; // Text compensation
+}
+
+.tg-kvp-value {
+  flex: 1 1 auto;
+
+  @include Txt-Body-1;
+
+  padding-top: 3px; // Text compensation
+  padding-bottom: 5px; // Text compensation
+}
+
+.tg-kvp-error-icon {
+  position: absolute;
+  margin-top: -2px;
+  margin-left: $micro-grid;
+}
+
+.tg-kvp._vertical {
+  flex-direction: column;
+}
+
+.tg-kvp._medium {
+  .tg-kvp-label {
+    flex: 0 0 auto !important;
+    padding-top: 6px;
+    padding-bottom: 2px;
+  }
+  .tg-kvp-value {
+    @include Txt-Header-2;
+    font-weight: 400;
+    padding-top: 0;
+    padding-bottom: 4px;
+  }
+}

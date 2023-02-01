@@ -1,0 +1,38 @@
+$icon-size: $micro-grid * 4;
+
+.tg-notification {
+  padding: ($padding/2) $padding ($padding/2) ($padding - 2px) ;
+  display: flex;
+  gap: $micro-grid;
+  border-left: 2px solid;
+
+  &._error {
+    color: $color-red;
+    background-color: $color-red-10;
+  }
+
+  &._plain {
+    padding: 0;
+    background-color: transparent;
+    border-left: none;
+  }
+}
+
+.tg-notification-icon {
+  flex: 0 0 $icon-size;
+  padding-top: $micro-grid;
+
+  .mat-icon {
+    width: $icon-size;
+    height: $icon-size;
+  }
+}
+
+.tg-notification-message {
+  flex: 1 1 auto;
+
+  @include Txt-Body-1;
+
+  padding-top: 3px; // Text compensation
+  padding-bottom: 5px; // Text compensation
+}

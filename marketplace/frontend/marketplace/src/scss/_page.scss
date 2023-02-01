@@ -1,0 +1,87 @@
+.tg-page {
+  box-sizing: border-box;
+  max-width: $app-width-desktop;
+  padding-top: 3 * $micro-grid;
+  padding-left: $padding;
+  padding-right: $padding;
+  padding-bottom: 2 * $gutter;
+  margin: 0 auto;
+}
+
+.tg-page-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.tg-page-dashboard {
+  margin-top: ($padding/2);
+  margin-bottom: ($padding/2);
+}
+
+.tg-page-tabs {
+  background-color: $color-main-bg;
+  margin-top: $padding;
+}
+
+.tg-page-content {
+  margin-top: $padding;
+}
+
+.tg-page-header-row {
+  display: flex;
+  gap: $padding;
+  align-items: flex-start;
+}
+
+.tg-page-header-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tg-page-header-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  gap: $padding;
+}
+
+.tg-page-toolbar-space {
+  display: inline-block;
+  width: $padding;
+}
+
+.tg-page-header-title {
+  margin: 0 !important;
+  padding-top: 4px; // Text compensation
+  padding-bottom: 4px; // Text compensation
+}
+
+.tg-page-header-subtitle {
+  @include Txt-Caption-1;
+
+  padding-top: 6px; // Text compensation
+  padding-bottom: 6px; // Text compensation
+}
+
+.tg-page-header-tags {
+  margin-top: 2 * $micro-grid;
+}
+
+.tg-page-section {
+  margin-top: $padding;
+  margin-bottom: $spacer;
+
+  .tg-table {
+    margin-top: $padding;
+  }
+
+  .tg-table + button {
+    margin-top: $padding;
+  }
+}
+
+.tg-page-plate {
+  background-color: $color-grey-10;
+  margin: (-$padding/2) (-$padding) (-$padding) (-$padding);
+  padding: ($padding/2) $padding $padding $padding;
+}

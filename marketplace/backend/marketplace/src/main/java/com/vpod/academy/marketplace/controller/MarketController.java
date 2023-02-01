@@ -3,6 +3,7 @@ package com.vpod.academy.marketplace.controller;
 import com.vpod.academy.marketplace.dto.OrderCreationDto;
 import com.vpod.academy.marketplace.dto.OrderDto;
 import com.vpod.academy.marketplace.service.OrderService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,9 +22,8 @@ public class MarketController {
   private final OrderService orderService;
 
   @GetMapping("/orders")
-  public String getAllOrders(Model model) {
-    model.addAttribute("orders", orderService.getAllOrders());
-    return "allOrders.html";
+  public ResponseEntity<List<OrderDto>> getAllOrders() {
+    return ResponseEntity.ok(orderService.getAllOrders());
   }
 
   @PostMapping("/orders/{id}/setStatus")

@@ -1,0 +1,29 @@
+<div class="tg-page">
+  <div class="tg-page-header">
+<!--  <app-breadcrumbs></app-breadcrumbs>-->
+    <div class="tg-page-header-row">
+      <div class="tg-page-header-info">
+        <h1 class="tg-page-header-title">"Заказы"</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="tg-page-content">
+    <mat-table class="tg-table" [dataSource]="dataSource">
+      <ng-container matColumnDef="orderNumber">
+        <mat-header-cell *matHeaderCellDef> No. Заявки </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.orderNumber}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> description </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="orderStatus">
+        <mat-header-cell *matHeaderCellDef> orderStatus </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.orderStatus}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+</div>

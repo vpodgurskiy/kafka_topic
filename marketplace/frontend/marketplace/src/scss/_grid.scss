@@ -1,0 +1,19 @@
+@for $i from 1 through 16 {
+  [grid="#{$i}"],
+  .tg-grid-#{$i} {
+    flex: 0 0 ($i * $grid + ($i - 1) * $gutter) !important;
+  }
+
+  mat-header-cell[grid="#{$i}"],
+  mat-cell[grid="#{$i}"],
+  .mat-header-cell[grid="#{$i}"],
+  .mat-cell[grid="#{$i}"] {
+    flex: 0 0 ($i * $grid + ($i - 1) * $gutter + 2 * $padding) !important;
+  }
+
+  .tg-container[grid="#{$i}"],
+  mat-table[grid="#{$i}"],
+  .mat-table[grid="#{$i}"] {
+    width: ($i * $grid + ($i - 1) * $gutter + 2 * $padding) !important;
+  }
+}
