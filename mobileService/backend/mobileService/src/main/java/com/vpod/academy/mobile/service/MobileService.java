@@ -1,11 +1,9 @@
 package com.vpod.academy.mobile.service;
 
 import com.vpod.academy.mobile.dto.SmsDto;
-import com.vpod.academy.mobile.entity.SmsEntity;
-import com.vpod.academy.mobile.mapper.MobileMapper;
 import com.vpod.academy.mobile.repository.MobileRepository;
+import com.vpod.academy.mobile.mapper.MobileMapper;
 import java.util.List;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

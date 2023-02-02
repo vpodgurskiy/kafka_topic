@@ -1,0 +1,25 @@
+<div class="tg-page">
+  <div class="tg-page-header">
+    <!--  <app-breadcrumbs></app-breadcrumbs>-->
+    <div class="tg-page-header-row">
+      <div class="tg-page-header-info">
+        <h1 class="tg-page-header-title">" Sms "</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="tg-page-content">
+    <mat-table class="tg-table" [dataSource]="dataSource">
+      <ng-container matColumnDef="sender">
+        <mat-header-cell *matHeaderCellDef> Отправитель </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.sender}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="messageText">
+        <mat-header-cell *matHeaderCellDef> Текст сообщения </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.messageText}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+</div>
