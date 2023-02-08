@@ -1,29 +1,55 @@
-<div class="tg-page">
-  <div class="tg-page-header">
-<!--  <app-breadcrumbs></app-breadcrumbs>-->
-    <div class="tg-page-header-row">
-      <div class="tg-page-header-info">
-        <h1 class="tg-page-header-title">"Заказы"</h1>
-      </div>
-    </div>
-  </div>
-
-  <div class="tg-page-content">
-    <mat-table class="tg-table" [dataSource]="dataSource">
-      <ng-container matColumnDef="orderNumber">
-        <mat-header-cell *matHeaderCellDef> No. Заявки </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.orderNumber}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="description">
-        <mat-header-cell *matHeaderCellDef> description </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="orderStatus">
-        <mat-header-cell *matHeaderCellDef> orderStatus </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.orderStatus}} </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-    </mat-table>
-  </div>
+<body>
+<div class="tg-toolbar">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span class="title-center">WTIF</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span class="title-app-name">marketplace</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
+
+<div class="button-container">
+  <button mat-raised-button (click)="addData()" class="button">
+    Add order
+  </button>
+</div>
+
+<div>
+  <mat-table [dataSource]="dataSource" class="mat-table">
+    <ng-container matColumnDef="orderNumber">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell"> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="mat-cell"> {{element.orderNumber}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell"> Description </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="mat-cell-description"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="orderStatus">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell"> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="mat-cell"> {{element.orderStatus}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef class="mat-header-cell"> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element; index as i" class="mat-cell-edit-button">
+        <button mat-raised-button (click)="setNewStatus()" class="edit-button">Change status</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
+
+<div class="footer">
+  <footer>
+  &copy; 2023 WTIF, DESIGNED BY VPOD
+  </footer>
+</div>
+</body>
+
+

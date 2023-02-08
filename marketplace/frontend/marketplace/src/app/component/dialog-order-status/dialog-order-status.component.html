@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Set new order status</h1>
+<div mat-dialog-content class="tg-dialog">
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="statusName">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.statusName}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"
+             (click)="selectedRow(row)"></mat-row>
+  </mat-table>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="onSaveClick()">Save</button>
+  <button mat-button mat-dialog-close (click)="onCancelClick()">Cancel</button>
+</div>
+
+
+
+

@@ -4,22 +4,17 @@ import { Order } from "../model/order";
 // @ts-ignore
 import config from '../app.config.json';
 import {Injectable} from "@angular/core";
+import {OrderStatus} from "../model/registries";
 
 @Injectable({
   providedIn: 'root',
 })
-export class OrderService {
+export class RegistriesService {
 
   constructor(private http: HttpClient) {
   }
 
-  getAllOrders(): Observable<Order[]> {
-    return this.http.get<Order[]>(`${config.apiPath}orders`, {});
-  }
-
-  setOrderStatus(status: string): void {
-    this.http.post<Order[]>(`${config.apiPath}orders`, {
-      status: status
-    });
+  getOrderStatuses(): Observable<OrderStatus[]> {
+    return this.http.get<OrderStatus[]>(`${config.apiPath}registries/orders/status`, {});
   }
 }

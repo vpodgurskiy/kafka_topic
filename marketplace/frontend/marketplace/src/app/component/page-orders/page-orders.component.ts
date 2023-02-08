@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from "@angular/material/table";
 import { OrderService } from 'src/app/service/order.service';
 import { Order } from "../../model/order";
+import {DialogOrderStatusComponent} from "../dialog-order-status/dialog-order-status.component";
+import {MatDialog} from "@angular/material/dialog";
+import {RegistriesService} from "../../service/registries.service";
 
 @Component({
   selector: 'app-page-orders',
@@ -10,18 +13,22 @@ import { Order } from "../../model/order";
 })
 export class PageOrdersComponent implements OnInit {
 
-  constructor(private orderService: OrderService) {
-  }
+  isActive = false;
 
   displayedColumns: string[] = [
     'orderNumber',
     'description',
     'orderStatus',
+    'action'
   ];
 
   dataSource: MatTableDataSource<Order> = new MatTableDataSource(
-    [] as Order[]
+      [] as Order[]
   );
+
+  constructor(private orderService: OrderService,
+              public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.getAllOrders();
@@ -33,4 +40,18 @@ export class PageOrdersComponent implements OnInit {
         this.dataSource.data = data;
     })
   };
+
+  addData() {}
+
+  removeData() {}
+
+  setNewStatus(): void {
+    const dialogRef = this.dialog.open(DialogOrderStatusComponent);
+    dialogRef.afterClosed().subscribe((data: string) => {
+      if (data) {
+        this.orderService.setOrderStatus(data);
+        this.ngOnInit();
+      }
+    });
+  }
 }
