@@ -5,6 +5,7 @@ import { Order } from "../../model/order";
 import {DialogOrderStatusComponent} from "../dialog-order-status/dialog-order-status.component";
 import {MatDialog} from "@angular/material/dialog";
 import {RegistriesService} from "../../service/registries.service";
+import {DialogOrderCreateComponent} from "../dialog-order-create/dialog-order-create.component";
 
 @Component({
   selector: 'app-page-orders',
@@ -41,9 +42,15 @@ export class PageOrdersComponent implements OnInit {
     })
   };
 
-  addData() {}
-
-  removeData() {}
+  createOrder() {
+    const dialogRef = this.dialog.open(DialogOrderCreateComponent);
+    dialogRef.afterClosed().subscribe((data: Order) => {
+      if (data) {
+        this.orderService.createOrder(data);
+        this.ngOnInit();
+      }
+    });
+  }
 
   setNewStatus(): void {
     const dialogRef = this.dialog.open(DialogOrderStatusComponent);

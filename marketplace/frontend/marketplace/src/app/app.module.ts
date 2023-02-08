@@ -7,12 +7,14 @@ import { PageOrdersComponent } from './component/page-orders/page-orders.compone
 import { MaterialModule } from "./material.module";
 import { HttpClientModule } from "@angular/common/http";
 import {DialogOrderStatusComponent} from "./component/dialog-order-status/dialog-order-status.component";
+import {DialogOrderCreateComponent} from "./component/dialog-order-create/dialog-order-create.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     PageOrdersComponent,
-    DialogOrderStatusComponent
+    DialogOrderStatusComponent,
+    DialogOrderCreateComponent
   ],
   imports: [
     BrowserModule,

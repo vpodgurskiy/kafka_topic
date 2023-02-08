@@ -17,9 +17,17 @@ export class OrderService {
     return this.http.get<Order[]>(`${config.apiPath}orders`, {});
   }
 
-  setOrderStatus(status: string): void {
-    this.http.post<Order[]>(`${config.apiPath}orders`, {
-      status: status
+  setOrderStatus(status: string, orderId?: string | null): void {
+    if (orderId != null) {
+      this.http.post<Order[]>(`${config.apiPath}orders/${orderId}/setStatus`, {
+        status: status
+      });
+    }
+  }
+
+  createOrder(data: Order): void {
+    this.http.post<Order[]>(`${config.apiPath}orders/create`, {
+      data
     });
   }
 }
