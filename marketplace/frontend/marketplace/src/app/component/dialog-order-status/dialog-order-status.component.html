@@ -1,19 +1,37 @@
-<h1 mat-dialog-title>Set new order status</h1>
-<div mat-dialog-content class="tg-dialog">
-  <mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="statusName">
-      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.statusName}} </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"
-             (click)="selectedRow(row)"></mat-row>
-  </mat-table>
+<!--<h1 mat-dialog-title>Set new order status</h1>-->
+<!--<div mat-dialog-content class="tg-dialog">-->
+<!--  <mat-table [dataSource]="dataSource">-->
+<!--    <ng-container matColumnDef="statusName">-->
+<!--      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>-->
+<!--      <mat-cell *matCellDef="let element"> {{element.statusName}} </mat-cell>-->
+<!--    </ng-container>-->
+<!--    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+<!--    <mat-row *matRowDef="let row; columns: displayedColumns"-->
+<!--             (click)="selectedRow(row)"></mat-row>-->
+<!--  </mat-table>-->
+<!--</div>-->
+
+<div>
+<mat-selection-list #statuses [multiple]="false">
+  <mat-list-option
+    (selectedChange)="selectedRow(statuses.selectedOptions.selected)"
+    *ngFor="let element of dataSource.data" [value]="element">
+    {{element.statusName}}
+  </mat-list-option>
+</mat-selection-list>
 </div>
+
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close cdkFocusInitial (click)="onSaveClick()">Save</button>
-  <button mat-button mat-dialog-close (click)="onCancelClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="onSaveClick()" color="primary" cdkFocusInitial>Save</button>
+  <button mat-button mat-dialog-close (click)="onCancelClick()" color="warn">Cancel</button>
 </div>
+
+
+<!--<mat-selection-list>-->
+<!--  <mat-list-option  (selectionChange)="handleSelection($event, category)" *ngFor="let category of categories" [value]="category">-->
+<!--    <span >{{category.name}}</span>-->
+<!--  </mat-list-option>-->
+<!--</mat-selection-list>-->
 
 
 

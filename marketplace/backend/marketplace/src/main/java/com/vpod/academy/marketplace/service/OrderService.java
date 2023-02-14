@@ -6,6 +6,7 @@ import com.vpod.academy.marketplace.constant.OrderStatus;
 import com.vpod.academy.marketplace.entity.OrderEntity;
 import com.vpod.academy.marketplace.mapper.OrderMapper;
 import com.vpod.academy.marketplace.repository.OrderRepository;
+import com.vpod.academy.marketplace.request.OrderStatusRequest;
 import java.util.List;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

@@ -4,13 +4,12 @@ import { OrderService } from 'src/app/service/order.service';
 import { Order } from "../../model/order";
 import {DialogOrderStatusComponent} from "../dialog-order-status/dialog-order-status.component";
 import {MatDialog} from "@angular/material/dialog";
-import {RegistriesService} from "../../service/registries.service";
 import {DialogOrderCreateComponent} from "../dialog-order-create/dialog-order-create.component";
 
 @Component({
   selector: 'app-page-orders',
   templateUrl: './page-orders.component.html',
-  styleUrls: ['./page-orders.component.css']
+  styleUrls: ['./page-orders.component.scss']
 })
 export class PageOrdersComponent implements OnInit {
 
@@ -52,12 +51,12 @@ export class PageOrdersComponent implements OnInit {
     });
   }
 
-  setNewStatus(): void {
+  setNewStatus(orderId: string): void {
     const dialogRef = this.dialog.open(DialogOrderStatusComponent);
     dialogRef.afterClosed().subscribe((data: string) => {
       if (data) {
-        this.orderService.setOrderStatus(data);
-        this.ngOnInit();
+        this.orderService.setOrderStatus(data, orderId)
+        .subscribe(() => this.ngOnInit());
       }
     });
   }

@@ -2,6 +2,7 @@ package com.vpod.academy.marketplace.controller;
 
 import com.vpod.academy.marketplace.dto.OrderCreationDto;
 import com.vpod.academy.marketplace.dto.OrderDto;
+import com.vpod.academy.marketplace.request.OrderStatusRequest;
 import com.vpod.academy.marketplace.service.OrderService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,9 +28,10 @@ public class MarketController {
     return ResponseEntity.ok(orderService.getAllOrders());
   }
 
-  @PostMapping("/orders/{id}/setStatus")
-  public ResponseEntity<Void> setNewOrderStatus(@PathVariable Long id, @RequestBody String status) {
-    orderService.setNewOrderStatus(id, status);
+  @PatchMapping("/orders/{orderId}/setStatus")
+  public ResponseEntity<Void> setNewOrderStatus(@PathVariable Long orderId,
+      @RequestBody(required = false) final String status) {
+    orderService.setNewOrderStatus(orderId, status);
     return ResponseEntity.noContent().build();
   }
 

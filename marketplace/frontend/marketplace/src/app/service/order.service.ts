@@ -17,17 +17,18 @@ export class OrderService {
     return this.http.get<Order[]>(`${config.apiPath}orders`, {});
   }
 
-  setOrderStatus(status: string, orderId?: string | null): void {
+  setOrderStatus(status: string, orderId?: string | null): Observable<any> {
     if (orderId != null) {
-      this.http.post<Order[]>(`${config.apiPath}orders/${orderId}/setStatus`, {
-        status: status
-      });
+      return this.http.patch<any>(`${config.apiPath}orders/${orderId}/setStatus`,
+        status
+      );
     }
+    return new Observable<any>;
   }
 
   createOrder(data: Order): void {
     this.http.post<Order[]>(`${config.apiPath}orders/create`, {
       data
-    });
+    }).subscribe();
   }
 }

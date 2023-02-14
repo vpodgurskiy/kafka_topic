@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {RegistriesService} from "../../service/registries.service";
 import {OrderStatus} from "../../model/registries";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MatListOption} from "@angular/material/list";
 
 @Component({
   selector: 'app-dialog-order-status',
@@ -30,8 +31,12 @@ export class DialogOrderStatusComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSaveClick() {
-    return this.orderStatus;
+  onSaveClick(): string | null {
+    if (this.orderStatus != "") {
+      return this.orderStatus;
+    } else {
+      return null;
+    }
   }
 
   ngOnInit(): void {
@@ -45,7 +50,11 @@ export class DialogOrderStatusComponent implements OnInit {
     })
   };
 
-  selectedRow(row: any) {
-    console.log(row);
+  selectedRow(selected: MatListOption[]) {
+    if (selected.length > 0) {
+      this.orderStatus = selected[0].value.statusName;
+    } else {
+      this.orderStatus = "";
+    }
   }
 }
