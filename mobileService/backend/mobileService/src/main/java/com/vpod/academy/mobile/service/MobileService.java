@@ -3,6 +3,7 @@ package com.vpod.academy.mobile.service;
 import com.vpod.academy.mobile.dto.SmsDto;
 import com.vpod.academy.mobile.repository.MobileRepository;
 import com.vpod.academy.mobile.mapper.MobileMapper;
+import com.vpod.academy.mobile.request.SmsCreateRequest;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,15 @@ public class MobileService {
     return mapper.mapToDtoAtList(repository.findAll());
   }
 
-  public SmsDto saveSms(SmsDto smsToSave) {
+  public SmsDto createSms(SmsCreateRequest smsToSave) {
     return mapper.mapToDto(
         repository.save(
             mapper.mapToEntity(smsToSave)
         )
     );
+  }
+
+  public void deleteAllSms() {
+    repository.deleteAll();
   }
 }

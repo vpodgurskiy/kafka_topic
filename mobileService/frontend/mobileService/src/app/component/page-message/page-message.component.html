@@ -1,26 +1,38 @@
-<div class="tg-page">
-  <div class="tg-page-header">
-    <!--  <app-breadcrumbs></app-breadcrumbs>-->
-    <div class="tg-page-header-row">
-      <div class="tg-page-header-info">
-        <h1 class="tg-page-header-title">" Sms "</h1>
-      </div>
-    </div>
-  </div>
-
-  <div class="tg-page-content">
-    <mat-table class="tg-table" [dataSource]="dataSource">
-      <ng-container matColumnDef="sender">
-        <mat-header-cell *matHeaderCellDef> Отправитель </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.sender}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="messageText">
-        <mat-header-cell *matHeaderCellDef> Текст сообщения </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.messageText}} </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row class="mat-header-cell" *matRowDef="let row; columns: displayedColumns"></mat-row>
-    </mat-table>
-  </div>
+<div>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="label">WTIF</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span class="app-name">phone</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
+
+<div class="table-container">
+
+  <button class="bt-ad" color="warn" mat-raised-button (click)="deleteAllMessages()">
+    Delete all
+  </button>
+
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="sender">
+      <th mat-header-cell *matHeaderCellDef> Отправитель </th>
+      <td mat-cell *matCellDef="let element"> {{element.sender}} </td>
+    </ng-container>
+    <ng-container matColumnDef="messageText">
+      <th mat-header-cell *matHeaderCellDef> Текст сообщения </th>
+      <td mat-cell *matCellDef="let element"> {{element.messageText}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<div>
+  <footer color="primary">
+    <span class="ft-label"> &copy; 2023 WTIF, DESIGNED BY VPOD </span>
+  </footer>
+</div>
+
 

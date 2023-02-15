@@ -6,12 +6,9 @@ import {Message} from "../../model/message";
 @Component({
   selector: 'app-page-message',
   templateUrl: './page-message.component.html',
-  styleUrls: ['./page-message.component.css']
+  styleUrls: ['./page-message.component.scss']
 })
 export class PageMessageComponent implements OnInit {
-
-  constructor(private messageService: MessageService) {
-  }
 
   displayedColumns: string[] = [
     'sender',
@@ -22,14 +19,22 @@ export class PageMessageComponent implements OnInit {
     [] as Message[]
   );
 
-  ngOnInit(): void {
-    this.getAllOrders();
+  constructor(private messageService: MessageService) {
   }
 
-  getAllOrders(): void {
+  ngOnInit(): void {
+    this.getAllMessages();
+  }
+
+  getAllMessages(): void {
     this.messageService.getAllMessages()
     .subscribe((data: Message[]) => {
       this.dataSource.data = data;
     })
   };
+
+  deleteAllMessages() {
+    this.messageService.deleteAllMessages()
+    .subscribe(() => this.ngOnInit());
+  }
 }
