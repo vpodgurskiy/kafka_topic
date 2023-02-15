@@ -1,29 +1,54 @@
-<div class="tg-page">
-  <div class="tg-page-header">
-<!--  <app-breadcrumbs></app-breadcrumbs>-->
-    <div class="tg-page-header-row">
-      <div class="tg-page-header-info">
-        <h1 class="tg-page-header-title">"Заказы"</h1>
-      </div>
-    </div>
-  </div>
-
-  <div class="tg-page-content">
-    <mat-table class="tg-table" [dataSource]="dataSource">
-      <ng-container matColumnDef="orderNumber">
-        <mat-header-cell *matHeaderCellDef> No. Заявки </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.orderNumber}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="description">
-        <mat-header-cell *matHeaderCellDef> description </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="orderStatus">
-        <mat-header-cell *matHeaderCellDef> orderStatus </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.orderStatus}} </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-    </mat-table>
-  </div>
+<div>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="label">WTIF</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span class="app-name">marketplace</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
+
+<div class="table-container">
+
+  <button class="bt-ad" mat-raised-button (click)="createOrder()">
+    Add order
+  </button>
+
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="orderNumber">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="orderStatus">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderStatus}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element; index as i">
+        <button mat-raised-button (click)="setNewStatus(element.id)" color="warn">Change status</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<div>
+  <footer color="primary">
+    <span class="ft-label"> &copy; 2023 WTIF, DESIGNED BY VPOD </span>
+  </footer>
+</div>
+
+
+
+

@@ -15,9 +15,20 @@ export class OrderService {
 
   getAllOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(`${config.apiPath}orders`, {});
-    // .pipe(
-    //   retry(2),
-    //   catchError(this._errorHandler)
-    // );
+  }
+
+  setOrderStatus(status: string, orderId?: string | null): Observable<any> {
+    if (orderId != null) {
+      return this.http.patch<any>(`${config.apiPath}orders/${orderId}/setStatus`,
+        status
+      );
+    }
+    return new Observable<any>;
+  }
+
+  createOrder(data: Order): void {
+    this.http.post<Order[]>(`${config.apiPath}orders/create`, {
+      data
+    }).subscribe();
   }
 }

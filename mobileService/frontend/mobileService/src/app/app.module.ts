@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {PageMessageComponent} from "./component/page-message/page-message.component";
 import {HttpClientModule} from "@angular/common/http";
-import { MaterialModule } from "./material.module";
+import {MaterialModule} from "./material.module";
 
 @NgModule({
   declarations: [
