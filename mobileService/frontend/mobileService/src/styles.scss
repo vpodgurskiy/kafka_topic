@@ -20,13 +20,18 @@ $my-app-theme: mat.define-light-theme(
 
 
 
-html,
-body {
-  height: 100%;
-}
+//html,
+//body {
+//  height: 100%;
+//}
 
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  //background-image: url("../src/assets/icons/photo_2023-02-17_13-25-12.jpg") !important;
+  //background-size: 390px 844px !important;
+  //background-repeat: no-repeat;
+  //width: 100% !important;
+  //z-index: 100 !important;
 }
 

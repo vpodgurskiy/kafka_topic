@@ -15,9 +15,7 @@ export class PageMessageComponent implements OnInit {
     'messageText'
   ];
 
-  dataSource: MatTableDataSource<Message> = new MatTableDataSource(
-    [] as Message[]
-  );
+  messages: Message[] | null = [];
 
   constructor(private messageService: MessageService) {
   }
@@ -29,7 +27,7 @@ export class PageMessageComponent implements OnInit {
   getAllMessages(): void {
     this.messageService.getAllMessages()
     .subscribe((data: Message[]) => {
-      this.dataSource.data = data;
+      this.messages = data;
     })
   };
 

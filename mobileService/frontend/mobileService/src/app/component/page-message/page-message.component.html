@@ -1,38 +1,32 @@
-<div>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span class="label">WTIF</span>
-    </mat-toolbar-row>
-    <mat-toolbar-row>
-      <span class="app-name">phone</span>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<div class="container">
+  <div class="container__main">
+    <header>
+      <div class="header__block"></div>
+      <div class="icons">
+        <span>
+          <mat-icon svgIcon="battery-60"></mat-icon>
+        </span>
+      </div>
+      <span>WTIF</span>
+    </header>
+    <div class="table-container">
+      <button class="bt-ad" color="warn" mat-raised-button (click)="deleteAllMessages()">
+        Delete all
+      </button>
+    </div>
+    <div *ngFor="let element of messages">
+      <div class="table-container">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-subtitle>{{element.sender}}</mat-card-subtitle>
+            <mat-card-title>Order status changed</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{element.messageText}}</p>
+            <mat-divider></mat-divider>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="table-container">
-
-  <button class="bt-ad" color="warn" mat-raised-button (click)="deleteAllMessages()">
-    Delete all
-  </button>
-
-  <table mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="sender">
-      <th mat-header-cell *matHeaderCellDef> Отправитель </th>
-      <td mat-cell *matCellDef="let element"> {{element.sender}} </td>
-    </ng-container>
-    <ng-container matColumnDef="messageText">
-      <th mat-header-cell *matHeaderCellDef> Текст сообщения </th>
-      <td mat-cell *matCellDef="let element"> {{element.messageText}} </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-</div>
-
-<div>
-  <footer color="primary">
-    <span class="ft-label"> &copy; 2023 WTIF, DESIGNED BY VPOD </span>
-  </footer>
-</div>
-
-
