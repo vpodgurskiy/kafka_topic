@@ -16,6 +16,13 @@ table {
   height: 150px;
 }
 
+.label {
+  margin: 0 auto;
+  color: white;
+  padding-top: 18px;
+  font-size: 36px;
+}
+
 .app-name {
   margin: 0 auto;
   text-align: center !important;
@@ -24,14 +31,16 @@ table {
 
 .bt-ad {
   margin-bottom: 20px;
+  color: white !important;
+  background-color: #0043ce !important;
 }
 
-.label {
-  margin: 0 auto;
-  color: white;
-  padding-top: 18px;
-  font-size: 34px;
+.bt-up {
+  margin-bottom: 20px;
+  margin-left: 10px;
+  background-color: whitesmoke !important;
 }
+
 
 /*!*FOOTER*!*/
 footer {

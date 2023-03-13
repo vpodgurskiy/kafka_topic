@@ -1,6 +1,6 @@
 version: '3'
 services:
-  postgres:
+  postgres-mobile:
     image: "postgres"
     container_name: "MOBILE"
     restart: always
@@ -9,4 +9,5 @@ services:
       POSTGRES_USER: mobileAdmin
       POSTGRES_DB: MOBILE
     ports:
-      - '5432:5432'
+      - '5433:5432'
+

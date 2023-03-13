@@ -33,4 +33,9 @@ public class OrderService {
     OrderEntity orderToSave = mapper.mapToEntity(order);
     return mapper.mapToDto(repository.save(orderToSave));
   }
+
+  public OrderDto getOrder(Long orderId) {
+    return mapper.mapToDto(repository.findById(orderId)
+        .orElse(new OrderEntity()));
+  }
 }

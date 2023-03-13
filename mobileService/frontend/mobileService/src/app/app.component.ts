@@ -25,6 +25,12 @@ export class AppComponent {
       )
     );
 
+    this.matIconRegistry.addSvgIcon(
+      'update-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/icons/update-icon.svg'
+      )
+    );
   }
   title = 'mobileService';
 }

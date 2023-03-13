@@ -13,6 +13,11 @@
       <button class="bt-ad" color="warn" mat-raised-button (click)="deleteAllMessages()">
         Delete all
       </button>
+      <button class="bt-up" mat-raised-button (click)="getAllMessages()">
+        <span>
+          <mat-icon svgIcon="update-icon"></mat-icon>
+        </span>
+      </button>
     </div>
     <div *ngFor="let element of messages">
       <div class="table-container">

@@ -14,6 +14,11 @@
   <button class="bt-ad" mat-raised-button (click)="createOrder()">
     Add order
   </button>
+  <button class="bt-up" mat-raised-button (click)="getAllOrders()">
+        <span>
+          <mat-icon svgIcon="update-icon"></mat-icon>
+        </span>
+  </button>
 
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="orderNumber">

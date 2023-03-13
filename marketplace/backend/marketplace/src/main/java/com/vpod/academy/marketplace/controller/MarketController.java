@@ -2,7 +2,9 @@ package com.vpod.academy.marketplace.controller;
 
 import com.vpod.academy.marketplace.dto.OrderCreationDto;
 import com.vpod.academy.marketplace.dto.OrderDto;
+import com.vpod.academy.marketplace.entity.OrderEntity;
 import com.vpod.academy.marketplace.request.OrderStatusRequest;
+import com.vpod.academy.marketplace.service.MobileService;
 import com.vpod.academy.marketplace.service.OrderService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MarketController {
 
   private final OrderService orderService;
+  private final MobileService mobileService;
 
   @GetMapping("/orders")
   public ResponseEntity<List<OrderDto>> getAllOrders() {
@@ -32,6 +35,7 @@ public class MarketController {
   public ResponseEntity<Void> setNewOrderStatus(@PathVariable Long orderId,
       @RequestBody(required = false) final String status) {
     orderService.setNewOrderStatus(orderId, status);
+    mobileService.sendMessage(orderService.getOrder(orderId));
     return ResponseEntity.noContent().build();
   }
 
